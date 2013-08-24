@@ -6,7 +6,8 @@ module Prawn
       attr_accessor :document, :content, :color
 
       def initialize(document, content, options={})
-        @document, @content, @color = document, content, color
+        @document, @content = document, content
+        @color = options.fetch(:color, "000000")
       end
 
       def qrcode
