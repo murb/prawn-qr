@@ -3,11 +3,10 @@ require 'rqrcode'
 module Prawn
   module Qr
     class QRCode
-      attr_accessor :document, :content
+      attr_accessor :document, :content, :color
 
-      def initialize(document, content)
-        @document = document
-        @content = content
+      def initialize(document, content, options={})
+        @document, @content, @color = document, content, color
       end
 
       def qrcode
@@ -35,7 +34,7 @@ module Prawn
           y += 1
           row.each_with_index do |dark, x|
             if dark
-              document.fill_color = '000000'
+              document.fill_color = color
               document.rectangle(
                 [x * cell_size + horizontal_offset, y * cell_size + vertical_offset],
                 cell_size, cell_size

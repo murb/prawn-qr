@@ -14,8 +14,8 @@ module Prawn
     #   Prawn::Document.generate "test.pdf" do
     #     qrcode "http://codegram.com"
     #   end
-    def qrcode(content)
-      QRCode.new(self, content).draw
+    def qrcode(content, options={})
+      QRCode.new(self, content, options).draw
     end
   end
 end
