@@ -15,10 +15,8 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Prawn::Qr::VERSION
 
-  gem.add_runtime_dependency 'rqrcode'
+  gem.add_runtime_dependency 'rqrcode_core'
   gem.add_runtime_dependency 'prawn'
   gem.add_development_dependency 'qrio'
-  gem.add_development_dependency 'mini_magick'
-  gem.add_development_dependency 'mocha'
-  gem.add_development_dependency 'rake'
+  gem.add_development_dependency 'rspec'
 end

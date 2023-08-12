@@ -10,18 +10,12 @@ module Prawn
         @color = options.fetch(:color, "000000")
       end
 
-      def qrcode
+       def qrcode
         return @qrcode if @qrcode
-        size = 1
-        while(!@qrcode)
-          begin
-            @qrcode = RQRCode::QRCode.new(content, size: size)
-          rescue RQRCode::QRCodeRunTimeError
-            size += 1
-          end
-        end
-        @qrcode = @qrcode.modules
+
+        @qrcode = RQRCodeCore::QRCode.new(content).modules
       end
+
 
       def draw
         document.fill_color 'ffffff'

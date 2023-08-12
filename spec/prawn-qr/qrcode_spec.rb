@@ -11,9 +11,9 @@ module Prawn::Qr
 
     describe "qrcode" do
       it "will generate a qr code for different sizes" do
-        QRCode.new(document, "X").qrcode.length.must_equal 21
-        QRCode.new(document, "X" * 50).qrcode.length.must_equal 41
-        QRCode.new(document, "X" * 200).qrcode.length.must_equal 81
+        expect(QRCode.new(document, "X").qrcode.length).to eq 21
+        expect(QRCode.new(document, "X" * 50).qrcode.length).to eq 37
+        expect(QRCode.new(document, "X" * 200).qrcode.length).to eq 61
       end
     end
 
@@ -27,7 +27,7 @@ module Prawn::Qr
         qr = File.join(tmp_path, 'test.png')
         `convert #{pdf} #{qr}`
         data = Qrio::Qr.load(qr)
-        data.qr.text.must_equal "BobRoss"
+        expect(data.qr.text).to eq "BobRoss"
       end
     end
   end

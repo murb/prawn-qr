@@ -22,6 +22,15 @@ Prawn::Document.generate "test.pdf" do
 end
 ```
 
+
+## Testing
+
+Tests are regular rspec tests; but in one step it uses imagemagick to check the visual output by converting the pdf to png and loading it into a PNG decoder
+
+```
+brew install imagemagick ghostscript
+```
+
 ## Contributing
 
 1. Fork it
