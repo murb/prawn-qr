@@ -1,4 +1,4 @@
-require 'rqrcode'
+require 'rqrcode_core'
 
 module Prawn
   module Qr
